@@ -103,7 +103,7 @@ jobs:
             src-tauri/target/
           key: ${{ runner.os }}-cargo-pake-${{ hashFiles('**/Cargo.lock') }}
 
-      - name: Build App (Linux/macOS)
+      - name:  (Linux/macOS)
         if: runner.os != 'Windows'
         timeout-minutes: 25
         shell: bash
@@ -193,7 +193,7 @@ jobs:
           }
 
           Write-Host "Running: node dist/cli.js $($args -join ' ')"
-          node dist/cli.js $args
+          node dist/cli.js $args --target i686-pc-windows-msvc
 
           git checkout -- src-tauri/Cargo.lock
 

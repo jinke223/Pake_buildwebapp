@@ -193,7 +193,7 @@ jobs:
           }
 
           Write-Host "Running: node dist/cli.js $($args -join ' ')"
-          node dist/cli.js $args --targets i686-pc-windows-msvc --bundled
+          node dist/cli.js $args --targets i686-pc-windows-msvc --iterative-build
 
           git checkout -- src-tauri/Cargo.lock
 
@@ -246,7 +246,7 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: ${{ inputs.name }}-Windows
-          path: ${{ inputs.name }}.exe
+          path: src-tauri/target/i686-pc-windows-msvc/release/${{ inputs.name }}.exe
           retention-days: 3
 
       - name: Rust cache store

@@ -16,5 +16,15 @@
   },
   "build": {
     "frontendDist": "../dist"
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["msi"],
+    "windows": {
+      "wix": {
+        "language": ["en-US"],
+        "arch": "x86"
+      }
+    }
   }
 }
